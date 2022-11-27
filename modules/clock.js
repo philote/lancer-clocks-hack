@@ -15,14 +15,14 @@ export class Clock {
   }
 
   constructor ({ theme, size, progress } = {}) {
-		this.themesPromise = FilePicker.browse("data", "modules/lancer-clocks/themes").then(data => {
+		this.themesPromise = FilePicker.browse("data", "modules/lancer-clocks-hack/themes").then(data => {
 		  let tempDirs = data.dirs;
 		  let newDirs = [];
 		  let newPaths = [];
 		  let baseDirCheck = false;
 		  tempDirs.forEach((dirItem) => {
-		    let newDirItem = dirItem.replace("modules/lancer-clocks/themes/","");
-		    if (dirItem.startsWith("modules/lancer-clocks/themes/")) {
+		    let newDirItem = dirItem.replace("modules/lancer-clocks-hack/themes/","");
+		    if (dirItem.startsWith("modules/lancer-clocks-hack/themes/")) {
 				newDirs.push(newDirItem);
 				newPaths.push(dirItem);
 				//console.log(dirItem)
@@ -40,7 +40,7 @@ export class Clock {
 		}).catch(err => {
 			error(err)
 		});
-		let extraPath = game.settings.get("lancer-clocks","extraPaths")
+		let extraPath = game.settings.get("lancer-clocks-hack","extraPaths")
 		if (!(extraPath.endsWith("/"))) {
 			extraPath = extraPath+"/"
 		}
@@ -76,7 +76,7 @@ export class Clock {
     this._progress = p || 0;
 
     this._theme = theme || this._themes?.[0] || "lancer_wallflower_green";
-	//let testingThemes = FilePicker.browse("data", "modules/lancer-clocks/themes").then(data => {console.log(data)});
+	//let testingThemes = FilePicker.browse("data", "modules/lancer-clocks-hack/themes").then(data => {console.log(data)});
 	//console.log(testingThemes);
   }
 
